@@ -60,10 +60,11 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'home',
+    'accounts',
+    'blog',
     'category',
     'tags',
-    'blog'
+    'post'
 ]
 
 INSTALLED_APPS += THIRD_PARTY_APPS + LOCAL_APPS
@@ -75,7 +76,7 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 # Custom User Model
-# AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.User'
 # FORCE_SESSION_TO_ONE = False
 # FORCE_INACTIVE_END_SESSION = False
 
@@ -117,7 +118,7 @@ WSGI_APPLICATION = 'jqurity.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite'),
     }
 }
 
