@@ -26,15 +26,15 @@ SECRET_KEY = 'q#4ob%&5k##$+y1tq2n+@k=!+a3)&9%l!)q^q%g9@=0v#*xqe7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 # SMTP GMAIL Settings
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'mohin.nr@gmail.com'
+EMAIL_HOST_PASSWORD = 'zbzkpzelcgzxddyo'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'Jqurity | jQurity Authority (jqurity@gmail.com)'
+DEFAULT_FROM_EMAIL = 'Jqurity | Custom User Auth (jqurity@gmail.com)'
 BASE_URL = '127.0.0.1:8000'
 
 
@@ -43,6 +43,7 @@ MANAGERS = [
 ]
 
 ADMINS = MANAGERS
+
 
 # Application definition
 
