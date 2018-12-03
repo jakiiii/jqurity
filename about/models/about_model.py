@@ -16,14 +16,15 @@ def upload_image_path(inistance, file_name):
     new_filename = random.randint(1, 101119)
     name, ext = get_filename_exist(file_name)
     final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
-    return "banner/{new_filename}/{final_filename}".format(new_filename=new_filename, final_filename=final_filename)
+    return "avatar/{new_filename}/{final_filename}".format(new_filename=new_filename, final_filename=final_filename)
 
 
 # Create your models here.
-class Blog(models.Model):
-    heading = models.CharField(max_length=150, null=True, blank=True)
-    description = models.TextField(max_length=300, null=True, blank=True)
-    banner = models.ImageField()
+class AboutModel(models.Model):
+    image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
+    description = models.TextField(max_length=120)
+    update = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "Banner Image"
+        return "About Me"

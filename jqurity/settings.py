@@ -66,7 +66,8 @@ LOCAL_APPS = [
     'blog',
     'category',
     'tags',
-    'post'
+    'post',
+    'about'
 ]
 
 INSTALLED_APPS += THIRD_PARTY_APPS + LOCAL_APPS

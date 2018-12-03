@@ -2,7 +2,9 @@
 <section>
                 <div class="container-fluid">
                     <div class="cover-div">
-                        <img src="{% static 'image/slider.jpg' %}" alt="cover" class="img cover-img" />
+                        {% for banner in banner_img %}
+                        <img src="{{ banner.banner.url }}" alt="{{ banner.heading }}" class="img cover-img" />
+                        {% endfor %}
                     </div><!-- end of cover-image -->
                 </div><!-- end of container -->
             </section>

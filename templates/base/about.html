@@ -4,13 +4,17 @@
                                 About Me
                             </div>
                             <div class="card-body">
-                                    <img class="card-img-top img-fluid" src="{% static 'image/image_test.jpg' %}" alt="Card image cap">
-                                <p>I am not mad or no fear to death. And I have nothing to lost. But I have a Dream, an Idea and Love.</p>
+                            {% for about in about_me %}
+                                <img class="card-img-top img-fluid" src="{{ about.image.url }}" alt="Card image cap">
+                                <p>{{ about.description }}</p>
+                            {% endfor %}
                                 <div class="social-sites">
-                                    <a href="#"><i class="fab fa-github"></i></a>
-                                    <a href="#"><i class="fab fa-gitlab"></i></a>
-                                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
+                                    {% for social in social_link %}
+                                        <a href="{{ social.github }}"><i class="fab fa-github"></i></a>
+                                        <a href="{{ social.gitlab }}"><i class="fab fa-gitlab"></i></a>
+                                        <a href="{{ social.linkedin }}"><i class="fab fa-linkedin"></i></a>
+                                        <a href="{{ social.twitter }}"><i class="fab fa-twitter"></i></a>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div><!-- end of about me -->
