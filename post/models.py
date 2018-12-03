@@ -23,7 +23,7 @@ def upload_image_path(inistance, file_name):
     new_filename = random.randint(1, 101119)
     name, ext = get_filename_exist(file_name)
     final_filename = '{new_filename}{ext}'.format(new_filename=new_filename, ext=ext)
-    return "products/{new_filename}/{final_filename}".format(new_filename=new_filename, final_filename=final_filename)
+    return "blog/{new_filename}/{final_filename}".format(new_filename=new_filename, final_filename=final_filename)
 
 
 User = settings.AUTH_USER_MODEL
@@ -31,12 +31,17 @@ User = settings.AUTH_USER_MODEL
 
 # Create your queryset here.
 class PostQuerySet(models.QuerySet):
-    pass
+    def active(self):
+        return self.filter(active=True)
 
 
 # Create your manager here.
 class PostManager(models.Manager):
-    pass
+    def get_queryset(self):
+        return PostQuerySet(self.model, using=self._db)
+
+    def all(self):
+        return self.get_queryset().active()
 
 
 # Create your models here.

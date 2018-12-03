@@ -1,44 +1,30 @@
 <div class="category">
-                            <div id="accordion">
-                                <div class="card">
-                                    <div class="card-header">
-                                        Category
-                                    </div>
-                                    <div class="card-body">
-                                        <div>
-                                            <div id="headingOne">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                        Developers
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                                                <div class="sub-category">
-                                                    <a href="#" class="">Python</a><br/>
-                                                    <a href="#" class="">Django</a><br/>
-                                                    <a href="#" class="">Flask</a><br/>
-                                                    <a href="#" class="">Algorithm</a><br/>
-                                                </div>
-                                            </div>
-                                            <div id="headingThree">
-                                                <h5 class="mb-0">
-                                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                                        Programming
-                                                    </button>
-                                                </h5>
-                                            </div>
-                                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                                <div class="sub-category">
-                                                    <a href="#" class="">SQL Injection</a><br/>
-                                                    <a href="#" class="">XSS</a><br/>
-                                                    <a href="#" class="">Virus</a><br/>
-                                                    <a href="#" class="">Your Own Security</a><br/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header">
+                Category
+            </div>
+            <div class="card-body">
+                <div>
+                    {% for category in category_list %}
+                        <div id="headingTwo">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    {{ category.category }}
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="sub-category">
+                                <a href="#" class="">Sub category 1</a><br/>
+                                <a href="#" class="">Sub category 2</a><br/>
+                                <a href="#" class="">Sub category 3</a><br/>
                             </div>
-                        </div><!-- category section -->
-                        <div class="clearfix"></div><br />
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!-- category section -->
+<div class="clearfix"></div><br />

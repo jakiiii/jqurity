@@ -8,30 +8,16 @@
         <section>
             <div class="col-12 col-md-12">
                 <div class="card-deck">
+                    {% for content in home_content %}
                     <div class="col-4 col-md-4 py-2">
                         <div class="card">
-                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
+                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{{ content.image.url }}" alt="{{ content.title }}"></a>
                             <div class="card-body">
-                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
+                                <p class="card-title">{{ content.title }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 col-md-4 py-2">
-                        <div class="card">
-                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
-                            <div class="card-body">
-                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-4 col-md-4 py-2">
-                        <div class="card">
-                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
-                            <div class="card-body">
-                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </section><!-- end of new content -->
