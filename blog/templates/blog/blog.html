@@ -1,9 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home || {{ block.super }}{% endblock title %}
 
 
 {% block content %}
-    <div class="text-center">
-        <h1 class="display-4"><b>jQurity Blog</b></h1><hr/>
-    </div>
+    <div class="col-9 col-md-9">
+        <section>
+            <div class="col-12 col-md-12">
+                <div class="card-deck">
+                    <div class="col-4 col-md-4 py-2">
+                        <div class="card">
+                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 py-2">
+                        <div class="card">
+                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 py-2">
+                        <div class="card">
+                            <a href="{% static 'single_content.html' %}"><img class="card-img-top card-img-height img img-thumbnail" src="{% static 'image/image_test.jpg' %}" alt="Card image cap"></a>
+                            <div class="card-body">
+                                <p class="card-title">The standard Lorem Ipsum passage, used since the 1500s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- end of new content -->
+        <div class="clearfix"></div><br />
+    </div><!-- end of col-9 col-md-9 -->
 {% endblock %}

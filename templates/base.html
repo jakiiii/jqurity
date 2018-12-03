@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
     <head>
@@ -13,11 +14,34 @@
 
     </head>
     <body>
-        {% include 'base/navbar.html' with brand_name='jQurity' %}
 
-        <div class="container">
-            {% block content %}{% endblock %}
+        <div class="container-fluid">
+            {% include 'base/navbar.html' with brand_name='jQurity' %}
+
+            {% include 'base/cover.html' %}
+        </div><!-- end of container-fluid-->
+        <div class="clearfix"></div><br />
+
+        <div class="container-fluid">
+            <section>
+                <div class="row">
+                    <!-- main content -->
+                    {% block content %}{% endblock %}
+                    <!-- main content -->
+
+                    <div class="col-3 col-md-3">
+
+                        {% include 'base/about.html' %}
+                        {% include 'base/category.html' %}
+                        {% include 'base/subscribe.html' %}
+
+                    </div><!-- end of col-3 -->
+
+                </div><!-- end of row -->
+            </section><!-- end of section -->
         </div>
+
+        {% include 'base/footer.html' %}
 
         <!-- Optional JavaScript -->
         {% include 'base/js.html' %}
