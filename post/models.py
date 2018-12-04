@@ -44,10 +44,6 @@ class PostManager(models.Manager):
     def all(self):
         return self.get_queryset().active()
 
-    # def get_by_category(self, category):
-    #     qs = self.get_queryset().filter(category=category)
-    #     return qs
-
 
 # Create your models here.
 class Post(models.Model):
@@ -74,13 +70,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={"slug": self.slug})
 
-    def get_category(self):
-        return self.category.sub_category
 
-
-def product_pre_save_receiver(sender, instance, *args, **kwargs):
+def post_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
 
-pre_save.connect(product_pre_save_receiver, sender=Post)
+pre_save.connect(post_pre_save_receiver, sender=Post)
