@@ -8,9 +8,9 @@ from about.models import AboutModel, SocialModel
 
 
 # Create your views here.
-class HomeContentListView(ListView):
+class PostListView(ListView):
     model = Post
-    template_name = 'blog/blog.html'
+    template_name = 'blog/blog_home.html'
     context_object_name = 'home_content'
 
     def get_context_data(self, *args, **kwargs):
@@ -19,4 +19,15 @@ class HomeContentListView(ListView):
         context['about_me'] = AboutModel.objects.all()[:1]
         context['social_link'] = SocialModel.objects.all()[:1]
         context['category_list'] = Category.objects.all()
+        return context
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'blog/blog_detail.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['title'] = '{}'.format(self.get_object().title)
+        context['social_link'] = SocialModel.objects.all()[:1]
         return context

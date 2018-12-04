@@ -2,6 +2,7 @@ import os
 import random
 
 from django.db import models
+from django.urls import reverse
 from django.conf import settings
 from django.db.models.signals import pre_save
 from django.core.files.storage import FileSystemStorage
@@ -66,9 +67,8 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    # def get_absolute_url(self):
-        # return "/products/{slug}".format(slug=self.slug)
-        # return reverse("product-detail", kwargs={"slug": self.slug})
+    def get_absolute_url(self):
+        return reverse("post-detail", kwargs={"slug": self.slug})
 
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):

@@ -18,7 +18,7 @@
         <div class="container-fluid">
             {% include 'base/navbar.html' with brand_name='jQurity' %}
 
-            {% include 'base/cover.html' %}
+            {% include 'base/cover.html' with banner_image='banner_image' %}
         </div><!-- end of container-fluid-->
         <div class="clearfix"></div><br />
 
@@ -31,9 +31,9 @@
 
                     <div class="col-3 col-md-3">
 
-                        {% include 'base/about.html' %}
-                        {% include 'base/category.html' %}
-                        {% include 'base/subscribe.html' %}
+                        {% include 'base/about.html' with about='about_content' %}
+                        {% include 'base/category.html' with category='category_content' %}
+                        {% include 'base/subscribe.html' with subscribe='subscribe_content' %}
 
                     </div><!-- end of col-3 -->
 
@@ -41,7 +41,7 @@
             </section><!-- end of section -->
         </div>
 
-        {% include 'base/footer.html' %}
+        {% include 'base/footer.html' with footer='footer' %}
 
         <!-- Optional JavaScript -->
         {% include 'base/js.html' %}
