@@ -9,16 +9,18 @@
                     {% for category in category_list %}
                         <div id="headingTwo">
                             <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#{{ category.category }}" aria-expanded="false" aria-controls="collapseTwo">
                                     {{ category.category }}
                                 </button>
                             </h5>
                         </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div id="{{ category.category }}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                             <div class="sub-category">
-                                <a href="#" class="">Sub category 1</a><br/>
-                                <a href="#" class="">Sub category 2</a><br/>
-                                <a href="#" class="">Sub category 3</a><br/>
+                                {% for sub_cat in sub_category %}
+                                    {% if sub_cat.category == category %}
+                                <a href="#" class="">{{ sub_cat.sub_category }}</a><br/>
+                                    {% endif %}
+                                {% endfor %}
                             </div>
                         </div>
                     {% endfor %}

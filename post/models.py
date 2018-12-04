@@ -7,7 +7,7 @@ from django.conf import settings
 from django.db.models.signals import pre_save
 from django.core.files.storage import FileSystemStorage
 
-from category.models import Category
+from category.models import Category, SubCategory
 from tags.models import Tag
 
 from jqurity.utils import unique_slug_generator
@@ -44,6 +44,10 @@ class PostManager(models.Manager):
     def all(self):
         return self.get_queryset().active()
 
+    # def get_by_category(self, category):
+    #     qs = self.get_queryset().filter(category=category)
+    #     return qs
+
 
 # Create your models here.
 class Post(models.Model):
@@ -52,7 +56,7 @@ class Post(models.Model):
     content = models.TextField()
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     link = models.URLField(max_length=300, null=True, blank=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
     update = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -69,6 +73,9 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post-detail", kwargs={"slug": self.slug})
+
+    def get_category(self):
+        return self.category.sub_category
 
 
 def product_pre_save_receiver(sender, instance, *args, **kwargs):
