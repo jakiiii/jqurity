@@ -31,6 +31,7 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('', include('post.urls')),
     path('', include('search.urls')),
+    path('', include('category.urls')),
 ]
 
 if settings.DEBUG:

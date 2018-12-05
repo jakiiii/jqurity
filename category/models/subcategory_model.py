@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.db.models.signals import pre_save
 
 from .category_models import Category
@@ -19,6 +20,9 @@ class SubCategory(models.Model):
     @property
     def title(self):
         return self.sub_category
+
+    def get_absolute_url(self):
+        return reverse("category", kwargs={"slug": self.slug})
 
 
 def sub_category_pre_save_receiver(sender, instance, *args, **kwargs):

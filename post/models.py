@@ -43,6 +43,9 @@ class PostQuerySet(models.QuerySet):
                 Q(tags__tag__icontains=query))
         return self.active().filter(lookups).distinct()  # distinct is ignore multiple value
 
+    def category(self, category_slug):
+        return Post.objects.filter(category__sub_category__iexact=category_slug)
+
 
 # Create your manager here.
 class PostManager(models.Manager):
@@ -54,6 +57,9 @@ class PostManager(models.Manager):
 
     def search(self, query):
         return self.get_queryset().search(query)
+
+    def category(self, category_slug):
+        return self.get_queryset().category(category_slug)
 
 
 # Create your models here.

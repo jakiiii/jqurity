@@ -19,7 +19,7 @@
                             <div class="sub-category">
                                 {% for sub_cat in sub_category %}
                                     {% if sub_cat.category == category %}
-                                <a href="#" class="">{{ sub_cat.sub_category }}</a><br/>
+                                <a href="{{ sub_cat.get_absolute_url }}" class="">{{ sub_cat.sub_category }}</a><br/>
                                     {% endif %}
                                 {% endfor %}
                             </div>

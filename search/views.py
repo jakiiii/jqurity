@@ -1,10 +1,7 @@
-from django.shortcuts import render
 from django.views.generic import ListView
 
-from blog.models import Blog
 from post.models import Post
-from category.models import Category, SubCategory
-from about.models import AboutModel, SocialModel
+from about.models import SocialModel
 
 
 # Create your views here.
