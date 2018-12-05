@@ -8,7 +8,8 @@
         <img src="{{ object.image.url }}" alt="image test" class="img img-thumbnail" style="width: 800px; height: 350px;" />
     </div>
     <div class="py-4" style="margin-left: 3rem;">
-        <h1>{{ object.title }}</h1>
+        <h1><b>{{ object.title }}</b></h1>
+        <p><b>Category:</b> {{ object.category }}</p>
         <p><b>Author:</b> {{ object.owner }}</p>
         <p><b>Publish:</b> {{ object.timestamp }}</p>
         <div>

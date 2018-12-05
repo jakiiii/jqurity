@@ -1,4 +1,7 @@
-{% url 'home' as Home %}
+{% url 'home' as home_url %}
+{% url 'profile' as profile_url %}
+{% url 'login' as account_url %}
+{% url 'logout' as logout_url %}
 
 <section>
     <div class="header">
@@ -8,10 +11,19 @@
                     <div class="container">
                         <div class="col-xs-8 col-sm-8">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                                <ul class="navbar-nav mr-auto">
-                                    <li class="nav-item active">
-                                        <a class="nav-link" href="{{ Home }}"><b>jQurity Blog</b><span class="sr-only">(current)</span></a>
+                                <ul class="navbar-nav mr-auto float-left">
+                                    <li class="nav-item {% if request.path == home_url %}active{% endif %}">
+                                        <a class="nav-link" href="{{ home_url }}">Home</a>
                                     </li>
+                                    {% if not request.user.is_authenticated %}
+                                        <li class="nav-item {% if request.path == account_url %}active{% endif %}">
+                                            <a class="nav-link" href="{{ account_url }}">Account</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="nav-item {% if request.path == profile_url %}active{% endif %}">
+                                            <a class="nav-link" href="{{ profile_url }}">Profile</a>
+                                        </li>
+                                    {% endif %}
                                     <!--
                                     <li class=" nav-item">
                                         <a class="nav-link" href="index.html">Portfolio</a>

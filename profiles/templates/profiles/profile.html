@@ -1,5 +1,5 @@
-{% extends 'base.html' %}
-{% block title %}Profile || {{ block.super }}{% endblock title %}
+{% extends 'account_base.html' %}
+{% block title %}{{ title }} || {{ block.super }}{% endblock title %}
 
 
 {% block content %}
@@ -9,6 +9,7 @@
             <div class="col-9 col-md-9">
                 <h5>{{ object.first_name }} {{ object.last_name }}</h5>
                 <h5>{{ object.email }}</h5>
+                <hr />
             </div><!-- end of col-9 -->
             <div class="col-3 col-md-3">
                 <div class="card">
@@ -17,6 +18,7 @@
                         <ul class="list-group">
                             <li class="list-group-item"><a href="{% url 'update-info' %}" style="text-decoration: none;">Change Name</a></li>
                             <li class="list-group-item"><a href="{% url 'password_change' %}" style="text-decoration: none;">Change Password</a></li>
+                            <li class="list-group-item"><a href="{% url 'user-post' %}" style="text-decoration: none;">Your Blog</a></li>
                         </ul>
                     </div>
                 </div>

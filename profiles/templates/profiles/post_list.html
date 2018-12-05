@@ -1,0 +1,40 @@
+{% extends 'account_base.html' %}
+{% block title %}{{ title }} || {{ block.super }}{% endblock title %}
+
+
+{% block content %}
+<div>
+    <div class="py-4">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col" class="text-center">Image</th>
+                    <th scope="col" class="text-center">Timestamp</th>
+                    <th scope="col" class="text-center">Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for post in post_list %}
+                <tr>
+                    <th scope="row" width="50px;">1</th>
+                    <td><a href="{{ post.get_absolute_url }}" style="text-decoration: none">{{ post.title }}</a></td>
+                    <td width="180px;" class="text-center"><img src="{{ post.image.url }}" class="img img-thumbnail" style="width: 140px; height: 100px;"/></td>
+                    <td width="120px;" class="text-center">{{ post.timestamp|date:'F j, Y"' }}</td>
+                    <td width="200px" class="text-center">
+                        <a href="#" class="btn btn-sm btn-primary">Active</a>
+                        <a href="#" class="btn btn-sm btn-info">Edit</a>
+                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table><!-- end of table -->
+            </div><!-- end of col-9 -->
+        </div><!-- end of row -->
+    </div>
+</div>
+{% endblock %}

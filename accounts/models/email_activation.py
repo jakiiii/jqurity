@@ -98,7 +98,7 @@ class EmailActivation(models.Model):
                 }
                 txt_ = get_template("registration/emails/verify.txt").render(context)
                 html_ = get_template("registration/emails/verify.html").render(context)
-                subject = '1-Click Email Verification.'
+                subject = 'jQurity User Verification.'
                 from_email = settings.DEFAULT_FROM_EMAIL
                 recipient_list = [self.email]
                 send_mail(
