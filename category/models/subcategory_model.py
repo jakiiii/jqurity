@@ -16,6 +16,10 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.sub_category
 
+    @property
+    def title(self):
+        return self.sub_category
+
 
 def sub_category_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:

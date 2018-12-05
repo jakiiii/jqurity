@@ -2,6 +2,7 @@ import os
 import random
 
 from django.db import models
+from django.db.models import Q
 from django.urls import reverse
 from django.conf import settings
 from django.db.models.signals import pre_save
@@ -35,6 +36,13 @@ class PostQuerySet(models.QuerySet):
     def active(self):
         return self.filter(active=True)
 
+    def search(self, query):
+        lookups = (
+                Q(title__icontains=query) |
+                Q(content__icontains=query) |
+                Q(tags__tag__icontains=query))
+        return self.active().filter(lookups).distinct()  # distinct is ignore multiple value
+
 
 # Create your manager here.
 class PostManager(models.Manager):
@@ -43,6 +51,9 @@ class PostManager(models.Manager):
 
     def all(self):
         return self.get_queryset().active()
+
+    def search(self, query):
+        return self.get_queryset().search(query)
 
 
 # Create your models here.

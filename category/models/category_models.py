@@ -13,6 +13,10 @@ class Category(models.Model):
     def __str__(self):
         return self.category
 
+    @property
+    def title(self):
+        return self.category
+
 
 def category_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
