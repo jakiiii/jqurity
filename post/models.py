@@ -71,8 +71,7 @@ class Post(models.Model):
     link = models.URLField(max_length=300, null=True, blank=True)
     category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, blank=True)
-    update = models.DateTimeField(auto_now=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=False)
     active = models.BooleanField(default=True)
     slug = models.SlugField(blank=True, unique=True)
 
