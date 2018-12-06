@@ -9,6 +9,7 @@ from about.models import AboutModel, SocialModel
 
 # Create your views here.
 class PostListView(ListView):
+    paginate_by = 12
     model = Post
     template_name = 'blog/blog_home.html'
     context_object_name = 'home_content'
