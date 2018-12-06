@@ -34,9 +34,5 @@ class PostDetailView(DetailView):
         context['social_link'] = SocialModel.objects.all()[:1]
         context['category_list'] = Category.objects.all()
         context['sub_category'] = SubCategory.objects.all()
-        # category_post = Post.get_category()
-        # context['related_post'] = Post.objects.filter(category__sub_category=self.category_post).exclude(id=Post)[:3]
+        context['related_post'] = Post.objects.filter(category=self.object.category).exclude(id=self.object.id)[:3]
         return context
-
-    # name = product.get_category()
-    # relateds = ProductBasic.objects.filter(category__name=name).exclude(id=product.id)[:5]
