@@ -4,7 +4,8 @@ from .views import (
     ProfileView,
     UserInfoUpdateView,
     UserPostListView,
-    UserPostCreateView
+    UserPostCreateView,
+    UserPostUpdateView
 )
 
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path('posts/', UserPostListView.as_view(), name='user-post'),
     path('update/', UserInfoUpdateView.as_view(), name='update-info'),
     path('create/', UserPostCreateView.as_view(), name='create-post'),
+    path('update/<slug:slug>/', UserPostUpdateView.as_view(), name='update-post'),
 ]

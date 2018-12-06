@@ -60,15 +60,10 @@ class UserPostListView(LoginRequiredMixin, ListView):
 
 
 class UserPostCreateView(LoginRequiredMixin, CreateView):
-    pass
     form_class = CreatePostFrom
     login_url = '/account/login/'
     success_url = '/profile/posts/'
     template_name = 'profiles/create_post.html'
-
-    # def get(self, request):
-    #     obj = render(request, self.template_name, {"post": self.form_class})
-    #     return obj
 
     def form_valid(self, form):
         instance = form.save(commit=False)
@@ -77,5 +72,26 @@ class UserPostCreateView(LoginRequiredMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['social_link'] = SocialModel.objects.all()[:1]
         context['title'] = 'Create Post'
         return context
+
+
+class UserPostUpdateView(LoginRequiredMixin, UpdateView):
+    form_class = CreatePostFrom
+    template_name = 'profiles/create_post.html'
+
+    def get_queryset(self):
+        return Post.objects.filter(owner=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['social_link'] = SocialModel.objects.all()[:1]
+        context['title'] = "Update Post"
+        return context
+
+    def get_success_url(self):
+        return reverse('user-post')
+
+    def get_login_url(self):
+        return reverse('login')
