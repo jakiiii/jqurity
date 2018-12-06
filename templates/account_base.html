@@ -13,15 +13,15 @@
       <title>{% block title %}jQurity{% endblock %}</title>
   </head>
   <body>
-    {% include 'account_base/navbar.html' with brand_name='jQurity' %}
+        {% include 'account_base/navbar.html' with brand_name='jQurity' %}
 
-    <div class="container">
-        {% block content %}{% endblock %}
-    </div>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
 
-    <!-- JavaScript -->
-    {% include 'base/js.html' %}
+        <!-- JavaScript -->
+        {% include 'base/js.html' %}
 
-    {% include 'base/footer.html' with footer='footer' %}
+        {% include 'base/footer.html' with footer='footer' %}
   </body>
 </html>

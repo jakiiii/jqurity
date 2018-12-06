@@ -25,15 +25,15 @@ class CreatePostFrom(forms.ModelForm):
         widgets = {
             'timestamp': DateTimeInput(),
         }
-        #
-        # labels = {
-        #     'title': 'Title',
-        #     'content': 'Content',
-        #     'image': 'Image',
-        #     'link': 'Link',
-        #     'category': 'Category',
-        #     'tags': 'Tags',
-        #     'timestamp': 'Timestamp',
-        #     'active': 'Active',
-        #     'slug': 'Slug',
-        # }
+
+        labels = {
+            'title': 'Title',
+            'content': 'Content',
+            'image': 'Image',
+            'link': 'Link',
+            'category': 'Category',
+            'tags': 'Tags',
+            'timestamp': 'Timestamp',
+            'active': 'Active',
+            'slug': 'Slug',
+        }

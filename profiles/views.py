@@ -55,8 +55,8 @@ class UserPostListView(LoginRequiredMixin, ListView):
         context['social_link'] = SocialModel.objects.all()[:1]
         return context
 
-    # def get_queryset(self):
-    #     return Post.objects.filter(owner=self.request.user)
+    def get_queryset(self):
+        return Post.objects.filter(owner=self.request.user)
 
 
 class UserPostCreateView(LoginRequiredMixin, CreateView):
