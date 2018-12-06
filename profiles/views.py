@@ -1,5 +1,6 @@
-from django.shortcuts import render, reverse
-from django.views.generic import CreateView, ListView, UpdateView, DetailView, TemplateView
+from django.shortcuts import reverse
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, UpdateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import CreatePostFrom
@@ -95,3 +96,16 @@ class UserPostUpdateView(LoginRequiredMixin, UpdateView):
 
     def get_login_url(self):
         return reverse('login')
+
+
+class UserPostDeleteView(LoginRequiredMixin, DeleteView):
+    model = Post
+    template_name = 'profiles/delete_confirm.html'
+    login_url = reverse_lazy('login')
+    success_url = reverse_lazy('user-post')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Delete- {}'.format(self.get_object().title)
+        return context
+

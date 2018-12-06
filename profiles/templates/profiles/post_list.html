@@ -27,7 +27,7 @@
                     <td width="250px" class="text-center">
                         <a href="#" class="btn btn-sm btn-success">Active</a>
                         <a href="{{ post.get_absolute_update_url }}" class="btn btn-sm btn-primary">Update</a>
-                        <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                        <a href="{{ post.get_absolute_delete_url }}" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

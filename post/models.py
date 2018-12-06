@@ -89,6 +89,9 @@ class Post(models.Model):
     def get_absolute_update_url(self):
         return reverse("update-post", kwargs={"slug": self.slug})
 
+    def get_absolute_delete_url(self):
+        return reverse('delete', kwargs={"slug": self.slug})
+
 
 def post_pre_save_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
