@@ -13,7 +13,7 @@
         <p><b>Author:</b> {{ object.owner }}</p>
         <p><b>Publish:</b> {{ object.timestamp|date:'F j, Y' }}</p>
         <div>
-            <p class="d-flex justify-content-center">{{ object.content }}</p>
+            <p class="d-flex justify-content-center">{{ object.content | safe }}</p>
         </div>
     </div>
     <div>

@@ -57,7 +57,9 @@ INSTALLED_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    'widget_tweaks'
+    'widget_tweaks',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 LOCAL_APPS = [
@@ -190,3 +192,10 @@ MEDIA_ROOT = os.path.join(
     os.path.dirname(BASE_DIR),
     "jqurity/static_cdn", "media_root"
 )
+
+# CK EDITOR
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+# CKEDITOR_BASEPATH = 'static/'
+# def get_filename(filename):
+#     return filename.upper()

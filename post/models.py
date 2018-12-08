@@ -8,6 +8,9 @@ from django.conf import settings
 from django.db.models.signals import pre_save
 from django.core.files.storage import FileSystemStorage
 
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 from category.models import Category, SubCategory
 from tags.models import Tag
 
@@ -66,7 +69,9 @@ class PostManager(models.Manager):
 class Post(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = RichTextUploadingField()
+    # content = RichTextField()
+    # content = models.TextField()
     image = models.ImageField(upload_to=upload_image_path, null=True, blank=True)
     link = models.URLField(max_length=300, null=True, blank=True)
     category = models.ForeignKey(SubCategory, on_delete=models.CASCADE)

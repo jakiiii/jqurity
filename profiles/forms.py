@@ -1,5 +1,7 @@
 from django import forms
 
+from ckeditor.widgets import CKEditorWidget
+
 from post.models import Post
 
 
@@ -9,6 +11,9 @@ class DateTimeInput(forms.DateTimeInput):
 
 
 class CreatePostFrom(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+    # content = forms.CharField(widget=forms.Textarea)
+
     class Meta:
         model = Post
         fields = [
