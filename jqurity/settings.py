@@ -193,8 +193,20 @@ MEDIA_ROOT = os.path.join(
     "jqurity/static_cdn", "media_root"
 )
 
-# CK EDITOR
+# CkEditor Upload path
 CKEDITOR_UPLOAD_PATH = 'uploads/'
+
+# CkEditor Custom Configuration
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'width': 680,
+        # 'toolbar_Custom': [
+        #     ['Bold', 'Link', 'Image'],
+        # ],
+        'extraPlugins': ','.join(['codesnippet']),
+    },
+}
 
 # CKEDITOR_BASEPATH = 'static/'
 # def get_filename(filename):
