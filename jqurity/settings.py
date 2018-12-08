@@ -201,13 +201,6 @@ CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
         'width': 680,
-        # 'toolbar_Custom': [
-        #     ['Bold', 'Link', 'Image'],
-        # ],
         'extraPlugins': ','.join(['codesnippet']),
     },
 }
-
-# CKEDITOR_BASEPATH = 'static/'
-# def get_filename(filename):
-#     return filename.upper()
