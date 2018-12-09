@@ -10,7 +10,7 @@
     <div class="py-4" style="margin-left: 3rem;">
         <h1><b>{{ object.title }}</b></h1>
         <p><b>Category:</b> {{ object.category }}</p>
-        <p><b>Author:</b> {{ object.owner }}</p>
+        <p><b>Author:</b> {{ object.owner.first_name }} {{ object.owner.last_name }}</p>
         <p><b>Publish:</b> {{ object.timestamp|date:'F j, Y' }}</p>
         <div>
             <p class="d-flex justify-content-center">{{ object.content | safe }}</p>
