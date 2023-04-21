@@ -5,4 +5,4 @@ django-widget-tweaks==1.4.3
 Pillow==7.2.0
 psycopg2==2.8.5
 pytz==2018.7
-sqlparse==0.3.0
+sqlparse==0.4.4
